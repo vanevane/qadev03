@@ -16,10 +16,10 @@ function initMenu() {
         function() {
             var checkElement = $(this).next();
             if((checkElement.is('ul')) && (checkElement.is(':visible'))) {
-                return true;
+                return false;
             }
             if((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
-                //$('#menu ul:visible').slideUp('normal');
+                $('#menu ul:visible').slideUp('normal');
                 checkElement.slideDown('normal');
                 return false;
             }
@@ -27,20 +27,20 @@ function initMenu() {
     );
 
 
-    var last=$.cookie('activeAccordionGroup');
+    /*var last=$.cookie('activeAccordionGroup');
     if (last!=null) {
         //remove default collapse settings
         $("#accordion2 .collapse").removeClass('in');
         //show the last visible group
         $("#"+last).collapse("show");
-    }
+    }*/
 
 
 
 }
 $(document).ready(function() {initMenu();});
 
-$("#accordion2").bind('shown', function() {
-    var active=$("#accordion2 .in").attr('id');
-    $.cookie('activeAccordionGroup', active)
-});
+//$("#accordion2").bind('shown', function() {
+//    var active=$("#accordion2 .in").attr('id');
+//    $.cookie('activeAccordionGroup', active)
+//});

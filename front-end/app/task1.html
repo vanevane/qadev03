@@ -8,7 +8,8 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/simple-sidebar.css" rel="stylesheet">
-    <link href="font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="js/lib/jquery-2.1.4.min.js"></script>
+    <!--link href="font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet"-->
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -16,6 +17,13 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <script>
+        $(function(){
+            $("#includedContent").load("menu.html");
+        });
+    </script>
+
 </head>
 <body>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -24,7 +32,8 @@
 <script src="js/lib/bootstrap.min.js"></script>
 <script src="js/lib/sidebar_menu.js"></script>
 <script src="js/lib/jquery-2.1.4.min.js"></script>
-<script src="js/task1.js" type="application/javascript"></script>
+<!--<script src="js/task1.js" type="application/javascript"></script>-->
+<script type="text/javascript" src="js/menu.js"></script>
 
 <div class="page-header" style="margin-bottom: 0px;">
     <h1>Js-basics<small> Javascript</small></h1>
@@ -49,27 +58,11 @@
 
 <div id="wrapper">
     <!-- Sidebar -->
-    <div id="sidebar-wrapper">
-        <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
 
-            <li class="active">
-                <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-dashboard fa-stack-1x "></i></span> Session 1</a>
-                <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-                    <li><a href="./task1.html">Task 1</a></li>
-                    <li><a href="#">Task 2</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span> Session 2</a>
-                <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-                    <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>link1</a></li>
-                    <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>link2</a></li>
 
-                </ul>
-            </li>
-        </ul>
-    </div><!-- /#sidebar-wrapper -->
-
+    <div id="includedContent"></div>
+    <!--<div id="sidebar-wrapper">-->
+    <!--</div>-->
 
 
     <div id="page-content-wrapper">
