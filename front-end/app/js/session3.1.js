@@ -85,6 +85,98 @@ var getFirstCapicua = function(initRange, endRange)
 
 }
 
-console.log('First capicua between', initRange, 'and', endRange, 'is', getFirstCapicua(initRange, endRange));
+//console.log('First capicua between', initRange, 'and', endRange, 'is', getFirstCapicua(initRange, endRange));
 
 
+var getFirstCapicua2 = function(offset, limit)
+{
+  for(var i = offset; i <= limit; i++)
+  {
+      if(isCapicua(i))
+      {
+          break;
+
+      }
+
+  }
+    return i;
+};
+
+var isCapicua = function (n)
+{
+    return n == Number.parseInt(n.toString().split('').reverse().join(''));
+
+}
+
+//console.log('First capicua number between', initRange, ' and ',
+//    endRange, ' is ', getFirstCapicua2(initRange, endRange));
+
+
+var range = 5;
+var getOddNumber = function (range)
+{
+
+    console.log('The first' + range + 'odd numbers are:');
+    for(var i = 1; i <= range; i++)
+    {
+        if((i % 2) != 0)
+        {
+            console.log(i);
+
+        }
+
+    }
+
+}
+
+var getEvenNumber = function (range)
+{
+    //console.log('The first' + range + 'even numbers are:');
+    //var flag = true;
+    //var cont = 0;
+
+    var evenNumbers = [];
+
+        for(var i = 1; i <= range * 2; i++)
+        {
+            if((i % 2) != 0)
+            {
+                continue;
+            }
+
+            evenNumbers.push(i);
+        }
+
+    return evenNumbers;
+}
+
+//getOddEvenNumber(5);
+
+//console.log('The fist '+ range + 'odd numbers are:' + getOddNumber(range));
+//console.log('The first '+ range + 'even numbers are:' + getEvenNumber(range));
+
+
+
+var num = 5;
+var getFactorial = function(num)
+{
+    var fac = 1;
+
+    //if(num == 0)
+    //{
+    //    return 1;
+    //}
+    //else
+    //{
+        for(var i = 1; i <= num; i++)
+        {
+            //fac = fac * (i + 1);
+            fac *= 1;
+
+        }
+
+    //}
+    return fac;
+}
+
+console.log('The factorial of ' + num + ' is ' + getFactorial(num));
