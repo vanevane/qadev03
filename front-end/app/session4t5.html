@@ -1,0 +1,98 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Javascript</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <script src="js/lib/jquery-2.1.4.min.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script>
+        $(function(){
+            $("#includedContent").load("menu.html");
+        });
+    </script>
+
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/lib/bootstrap.min.js"></script>
+<script src="js/lib/sidebar_menu.js"></script>
+<script src="js/lib/jquery-2.1.4.min.js"></script>
+<script src="js/lib/prettify.js"></script>
+
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<script src="js/session4.js" type="application/javascript"></script>
+<script type="text/javascript" src="js/menu.js"></script>
+
+<div class="page-header" style="margin-bottom: 0px;">
+    <h1>Js-basics<small> Javascript</small></h1>
+</div>
+
+<nav class="navbar navbar-default no-margin">
+    <div class="navbar-header fixed-brand">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"  id="menu-toggle">
+            <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
+        </button>
+        <a class="navbar-brand" href="./index.html"><i class="fa fa-rocket fa-4"></i> QADEV03</a>
+    </div><!-- navbar-header-->
+</nav>
+
+
+<div id="wrapper">
+    <!-- Sidebar -->
+    <div id="includedContent"></div>
+
+    <div id="page-content-wrapper">
+        <p></p>
+        <h2 style="margin-top: 0px;"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>Session 4 - Task 5</h2>
+        <div class="container-fluid">
+            <h2>Excercise</h2>
+            <p>Factorial</p>
+
+            <br>
+            <b><p>SOLUTION</p></b>
+            <em><p>Use:</p></em>
+            <code>ses4.factorial(N);</code><br>
+            <code>ses4.factorial(5);</code><br>
+
+            <br>
+            <em><p>Output:</p></em>
+            <samp>The factorial of 5 is 120</samp>
+            <br><br>
+
+            <em><p>Code:</p></em>
+
+            <pre class="prettyprint">
+var getFactorial = function(num)
+{
+    var fac = 1;
+        for(var i = 1; i <= num; i++)
+        {
+            fac *= i;
+        }
+    return fac;
+};
+
+ses4.prototype.factorial = function (num)
+{
+    console.log('The factorial of ' + num + ' is ' + getFactorial(num));
+};
+            </pre>
+
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

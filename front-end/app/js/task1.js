@@ -102,14 +102,105 @@ var Calculator = function()
 }
 
 var cal = new Calculator();
-//cal.calculate(3,4,5);
-//cal.calculate(1,2,3);
-//cal.calculate(11,11,11);
-cal.calculate(1,2);
-console.log('-----------');
-cal.calculate(1,2,3,4);
-console.log('-----------')
-cal.calculate(1);
+//cal.calculate(1,2);
+//console.log('-----------');
+//cal.calculate(1,2,3,4);
+//console.log('-----------')
+//cal.calculate(1);
+
+
+var Calculator2 = function(){};
+
+Calculator2.prototype.sum = function()
+{
+	var _sum = function(numbers, pos){
+
+		if (!pos)
+			pos = 0;
+
+		if (pos == numbers.length - 1)
+			return numbers[pos];
+
+		return numbers[pos] + _sum(numbers, pos + 1);
+	};
+
+	if (typeof arguments[0] == 'object')
+		return _sum(arguments[0]);
+
+	return _sum(arguments);
+};
+
+Calculator2.prototype.avg = function()
+{
+	var _avg = function(numbers, pos){
+		if (!pos)
+			pos = 0;
+
+		if (pos == numbers.length - 1)
+			return numbers[pos] / numbers.length;
+
+		return ((numbers[pos]/ numbers.length) + _avg(numbers, pos + 1));
+	};
+
+	if (typeof arguments[0] == 'object')
+		return _avg(arguments[0]);
+
+	return _avg(arguments);
+};
+
+Calculator2.prototype.min = function()
+{
+	var _min = function(numbers, pos){
+
+		if (!pos)
+			pos = 0;
+
+		if (pos == numbers.length - 1)
+			return numbers[pos];
+
+		if(numbers[pos] < _min(numbers, pos + 1))
+		return numbers[pos];
+	};
+
+	if (typeof arguments[0] == 'object')
+		return _min(arguments[0]);
+
+	return _min(arguments);
+};
+
+Calculator2.prototype.max = function()
+{
+	var _max = function(numbers, pos){
+
+		if (!pos)
+			pos = 0;
+
+		if (pos == numbers.length - 1)
+			return numbers[pos];
+
+		if(numbers[pos] < _max(numbers, pos + 1))
+		return  _max(numbers, pos + 1);
+	};
+
+	if (typeof arguments[0] == 'object')
+		return _max(arguments[0]);
+
+	return _max(arguments);
+};
+
+Calculator2.prototype.eval = function () {
+	console.log('SUM:', this.sum(arguments));
+	console.log('AVG:', this.avg(arguments));
+	console.log('MAX:', this.max(arguments));
+	console.log('MIN:', this.min(arguments));
+	console.log('---------------------------');
+};
+var calc = new Calculator2();
+//calc.eval(1,2);
+//calc.eval(2,3,4);
+//calc.eval(1);
+
+
 
 /*
 * var calculator = new calculator()

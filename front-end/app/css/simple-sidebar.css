@@ -8,14 +8,14 @@
 /* This sidebar modified by seegatesite.com */
 
 #wrapper {
-    /*min-height: 100%;*/
+    min-height: 530px;
     padding-left: 0;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
 
-    /*position: relative;*/
+    position: relative;
 }
 
 #wrapper.toggled {
@@ -81,7 +81,7 @@
     text-decoration: none;
     color: #fff;
     background: rgba(255,255,255,0.2);
-    border-left: red 2px solid;
+    border-left: #65e6ff 2px solid;
 }
 
 .sidebar-nav li a:active,

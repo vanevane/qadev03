@@ -18,6 +18,8 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <!--<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>-->
+
     <script>
         $(function(){
             $("#includedContent").load("menu.html");
@@ -32,7 +34,17 @@
 <script src="js/lib/bootstrap.min.js"></script>
 <script src="js/lib/sidebar_menu.js"></script>
 <script src="js/lib/jquery-2.1.4.min.js"></script>
-<!--<script src="js/task1.js" type="application/javascript"></script>-->
+<script src="js/lib/prettify.js"></script>
+<!--<script type="text/javascript">-->
+    <!--!function ($) {-->
+        <!--$(function(){-->
+            <!--window.prettyPrint && prettyPrint()-->
+        <!--})-->
+    <!--}(window.jQuery)-->
+<!--</script>-->
+
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<script src="js/task1.js" type="application/javascript"></script>
 <script type="text/javascript" src="js/menu.js"></script>
 
 <div class="page-header" style="margin-bottom: 0px;">
@@ -58,22 +70,240 @@
 
 <div id="wrapper">
     <!-- Sidebar -->
-
-
     <div id="includedContent"></div>
     <!--<div id="sidebar-wrapper">-->
     <!--</div>-->
-
-
     <div id="page-content-wrapper">
-
-        <h2 style="margin-top: 0px;"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Task 1</h2>
+        <p></p>
+        <h2 style="margin-top: 0px;"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>Session 2 - Task 1</h2>
         <div class="container-fluid">
             <!--h1>My first Bootstrap website!</h1-->
-            My app =)
+            <h2>Excercise</h2>
+            <p>Create a function that given N arguments, calculates:</p>
+            <p><b>a)</b> The max number</p>
+            <p><b>b)</b> The min number</p>
+            <p><b>c)</b> The avarage</p>
+            <p><b>d)</b> The total sum</p>
+
+
+            <br>
+            <b><p>FIRST APPROACH</p></b>
+            <em><p>Use:</p></em>
+            <code>cal.calculate(arguments)</code><br>
+            <code>cal.calculate(1)</code><br>
+            <code>cal.calculate(1,2)</code><br>
+            <code>cal.calculate(1,2,3,4)</code><br>
+
+            <br>
+            <em><p>Output:</p></em>
+            <samp>SUM:  3<br>
+                 AVE:  1.5<br>
+                 MAX:  2<br>
+                 MIN:  1</samp>
+            <br><br>
+
+            <em><p>Code:</p></em>
+
+
+            <pre class="prettyprint">
+    var Calculator = function()
+    {
+    this.list;
+    this.size;
+    this.res;
+    this.calculate = function()
+    {
+        list = cal.calculate.arguments;
+        size = cal.calculate.arguments.length;
+        res = 0;
+        var ansSum = this.sum(size);
+        console.log('SUM: ', ansSum);
+        res = 0;
+        var ansAve = this.average(size);
+        console.log('AVE: ', ansAve);
+        res = 0;
+        var ansMax = this.max(size);
+        console.log('MAX: ', ansMax);
+        res = list[size-1];
+        var ansMin = this.min(size);
+        console.log('MIN: ', ansMin);
+    }
+
+    this.sum = function(size) {
+        if(size-1 == 0)
+		{
+			res = res + list[0];
+			return res;
+		}
+		else
+		{
+			res = res + list[size-1];
+			return this.sum(size-1);
+		}
+    };
+
+    this.average = function(size)
+	{
+		if(size-1 == 0)
+		{
+			res = (res + list[0])/list.length;
+			return res;
+		}
+		else
+		{
+			res = res + list[size-1];
+			return this.average(size-1);
+		}
+    };
+
+    this.max = function(size)
+	{
+		if(size-1 == 0)
+		{
+			if(list[0] > res)
+			{
+				res = list[0];
+			}
+			return res;
+		}
+		else
+		{
+			if(list[size-1] > res)
+			{
+				res = list[size-1];
+			}
+			return this.max(size-1);
+		}
+    };
+
+    this.min = function(size)
+	{
+		if(size-1 == 0)
+		{
+			if(list[0] < res)
+			{
+				res = list[0];
+			}
+			return res;
+		}
+		else
+		{
+			if(list[size-1] < res)
+			{
+				res = list[size-1];
+			}
+			return this.min(size-1);
+		}
+    };
+    }
+            </pre>
+
+        <b><p>SECOND APPROACH</p></b>
+        <em><p>Use:</p></em>
+        <code>calc.eval(arguments)</code><br>
+        <code>cal.calculate(1)</code><br>
+        <code>cal.calculate(1,2)</code><br>
+        <code>cal.calculate(1,2,3,4)</code><br>
+
+        <br>
+        <em><p>Output:</p></em>
+        <samp>SUM:  3<br>
+            AVE:  1.5<br>
+            MAX:  2<br>
+            MIN:  1</samp>
+
+        <br><br>
+        <em><p>Code:</p></em>
+
+         <pre class="prettyprint">
+var Calculator2 = function(){};
+
+Calculator2.prototype.sum = function()
+{
+	var _sum = function(numbers, pos){
+
+		if (!pos)
+			pos = 0;
+
+		if (pos == numbers.length - 1)
+			return numbers[pos];
+
+		return numbers[pos] + _sum(numbers, pos + 1);
+	};
+
+	if (typeof arguments[0] == 'object')
+		return _sum(arguments[0]);
+
+	return _sum(arguments);
+};
+
+Calculator2.prototype.avg = function()
+{
+	var _avg = function(numbers, pos){
+		if (!pos)
+			pos = 0;
+
+		if (pos == numbers.length - 1)
+			return numbers[pos] / numbers.length;
+
+		return ((numbers[pos]/ numbers.length) + _avg(numbers, pos + 1));
+	};
+
+	if (typeof arguments[0] == 'object')
+		return _avg(arguments[0]);
+
+	return _avg(arguments);
+};
+
+Calculator2.prototype.min = function()
+{
+	var _min = function(numbers, pos){
+
+		if (!pos)
+			pos = 0;
+
+		if (pos == numbers.length - 1)
+			return numbers[pos];
+
+		if(numbers[pos] < _min(numbers, pos + 1))
+		return numbers[pos];
+	};
+
+	if (typeof arguments[0] == 'object')
+		return _min(arguments[0]);
+
+	return _min(arguments);
+};
+
+Calculator2.prototype.max = function()
+{
+	var _max = function(numbers, pos){
+
+		if (!pos)
+			pos = 0;
+
+		if (pos == numbers.length - 1)
+			return numbers[pos];
+
+		if(numbers[pos] < _max(numbers, pos + 1))
+		return  _max(numbers, pos + 1);
+	};
+
+	if (typeof arguments[0] == 'object')
+		return _max(arguments[0]);
+
+	return _max(arguments);
+};
+
+Calculator2.prototype.eval = function () {
+	console.log('SUM:', this.sum(arguments));
+	console.log('AVG:', this.avg(arguments));
+	console.log('MAX:', this.max(arguments));
+	console.log('MIN:', this.min(arguments));
+	console.log('---------------------------');
+};</pre>
         </div>
-
-
+        </div>
     </div>
 
 </div>
