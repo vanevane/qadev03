@@ -5,7 +5,7 @@
 var Ship =function(size, initPos)
 {
     this.size = size;
-    this.position = pos; //??
+    this.position = initPos; //??
     this.status = 'ALIVE';
 };
 
