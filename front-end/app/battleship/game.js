@@ -8,6 +8,14 @@ var BattleShipGame = function(numPlayers, size)
 
     this.players = [];
 
+    this.init(numPlayers, size);
+    this.start();
+
+
+};
+
+BattleShipGame.prototype.init = function(numPlayers, size)
+{
     for(var i = 0; i < numPlayers; i++)
     {
         var playerName = 'Player ' + i;
@@ -16,4 +24,20 @@ var BattleShipGame = function(numPlayers, size)
         this.players.push(player);
     };
 
+};
+
+BattleShipGame.prototype.start = function()
+{
+    //Start Loop
+    this.printTables();
+    var input = window.prompt('Shoot'); //0,1
+    console.log('shoot is:', input);
+    //End Loop
+};
+
+BattleShipGame.prototype.printTables = function()
+{
+    //Start Loop
+    console.log('Table: ', this.players[0].table.grid.join('-'));
+    //End loop
 };
