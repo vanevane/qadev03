@@ -13,7 +13,7 @@ var Axis = function(col, row)
 
     this.getRow = function()
     {
-        return _axis[0];
+        return _axis[1];
     };
 
 };
