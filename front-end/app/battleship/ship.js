@@ -1,12 +1,12 @@
 /**
  * Created by vanessavargas on 6/22/2015.
- * Ship creationn
- * The ship has a size, status, initial position
+ * Ship creation
+ * The ship has a size, status, initial position, and value
  */
 
-var Ship =function(size, initPos)
+var Ship =function(id, size, initPos)
 {
-    //this.id = id;
+    this.id = id;
     this.size = size;
     this.position = initPos;
     this.status = 'ALIVE';
