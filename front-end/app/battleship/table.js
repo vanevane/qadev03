@@ -15,76 +15,28 @@ var Table = function(size, shipArray)
     this.score = 0;
 };
 
+/**
+ * This method creates a set of three ships.
+ */
 Table.prototype.createShips = function()
 {
-    /**
-     * This for cycle creates a set of three ships.
-     */
     for(var z = 1; z <= 3; z++)
     {
         var shipId = z;
         var shipSize = this.getShipRandomSize();
         var shipInitPos = this.getShipRandomPos(shipSize);
-        var ship = new Ship(shipId, shipSize, shipInitPos);//modify the Ship class so it receives and "id" as the first parameter
+        var ship = new Ship(shipId, shipSize, shipInitPos);//the Ship class receives an "id" as the first parameter
         this.ships.push(ship);
 
         for(var j = shipInitPos.getColumn(); j < shipInitPos.getColumn() + shipSize; j++)
         {
-            this.grid[j][shipInitPos.getRow()] = shipId; // 1 = first ship;
+            this.grid[j][shipInitPos.getRow()] = shipId;
         }
     }
-
-
-    /**
-     * The following lines also create a set of three ships
-     */
-    //var shipId1 = 1;
-    //var shipSize1 = this.getShipRandomSize();
-    //var shipId2 = 2;
-    //var shipSize2 = this.getShipRandomSize();
-    //var shipId3 = 3;
-    //var shipSize3 = this.getShipRandomSize();
-    ////console.log('size1 ', shipSize1);
-    ////console.log('size2 ', shipSize2);
-    ////console.log('size3  ', shipSize3);
-    //
-    //var shipInitPos1 = this.getShipRandomPos(shipSize1);
-    //var shipInitPos2 = this.getShipRandomPos(shipSize2);
-    //var shipInitPos3 = this.getShipRandomPos(shipSize3);
-    //console.log('pos1 ', shipInitPos1.getColumn(), shipInitPos1.getRow());
-    //console.log('pos2 ', shipInitPos2.getColumn(), shipInitPos2.getRow());
-    //console.log('pos3 ', shipInitPos3.getColumn(), shipInitPos3.getRow());
-    //
-    ////var shipInitPos1 = new Axis(3,2);//returns new axis
-    ////var shipInitPos2 = new Axis(5,4);//returns new axis
-    ////var shipInitPos3 = new Axis(2,6);//returns new axis
-    //
-    //var ship1 = new Ship(shipSize1, shipInitPos1);
-    //var ship2 = new Ship(shipSize2, shipInitPos2);
-    //var ship3 = new Ship(shipSize3, shipInitPos3);
-    //
-    //this.ships.push(ship1);
-    //this.ships.push(ship2);
-    //this.ships.push(ship3);
-    //
-    //for(var j = shipInitPos1.getColumn(); j < shipInitPos1.getColumn() + shipSize1; j++)
-    //{
-    //    this.grid[j][shipInitPos1.getRow()] = shipId1; // 1 = first ship;
-    //}
-    //for(var j = shipInitPos2.getColumn(); j < shipInitPos2.getColumn() + shipSize2; j++)
-    //{
-    //    this.grid[j][shipInitPos2.getRow()] = shipId2; // 2 = second ship;
-    //}
-    //for(var j = shipInitPos3.getColumn(); j < shipInitPos3.getColumn() + shipSize3; j++)
-    //{
-    //    this.grid[j][shipInitPos3.getRow()] = shipId3; // 3 = third ship;
-    //}//col, row
 };
 
 /**
  * This method returns a random position for the ship.
- * However since sometimes it takes too long to return a value, and the JS page cannot be loaded,
- * this method is not currently used.
  * @param shipSize
  * @returns {Axis}
  */
@@ -141,7 +93,6 @@ Table.prototype.createGrid = function(size)
         {
             this.grid[i][j] = EMPTY_CELL;
         }
-
     }
 };
 
@@ -185,6 +136,10 @@ Table.prototype.setShipShoot = function(input)
 
 };
 
+/**
+ * This method checks whether a ship is 'killed' or 'alive'
+ * @param shipId
+ */
 Table.prototype.checkStatus = function(shipId)
 {
     var flag = 0;
@@ -198,6 +153,9 @@ Table.prototype.checkStatus = function(shipId)
     }
 };
 
+/**
+ * Prints the table displaying the position of the ships
+ */
 Table.prototype.print = function()
 {
     for(var i = 0; i < this.size; i++) {
@@ -209,6 +167,9 @@ Table.prototype.print = function()
     document.write("<br>");
 };
 
+/**
+ * This method prints the table replacing the ships positions by '0'
+ */
 Table.prototype.printFake = function()
 {
     var header = '';
@@ -232,12 +193,11 @@ Table.prototype.printFake = function()
     document.write("<br>");
 };
 
+/**
+ * This method returns the total score
+ * @returns {number|*}
+ */
 Table.prototype.getScore = function()
 {
     return this.score;
-};
-
-Table.prototype.getShip1 = function()
-{
-    return this.ships[0];
 };
