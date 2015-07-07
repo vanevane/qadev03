@@ -65,7 +65,7 @@ BattleShipGame.prototype.SinglePlay = function()
     this.tables[0].printFake();
     while(turns > 0)
     {
-        var input = window.prompt('Shoot'); //0,1
+        var input = window.prompt('Player, input a position i.e. (x,y)'); //0,1
         turns--;
         document.getElementById('main').innerHTML = '';
         document.write('Maximum number of turns: ', turns);
@@ -104,7 +104,7 @@ BattleShipGame.prototype.TwoPlayers = function()
     document.write("<br>");
     document.write("<br>");
 
-    //this.tables[1].printFake();
+    this.tables[0].printFake();
 
     while((turns1 + turns2) > 0) {
         while ((turns1) > 0) {
@@ -113,7 +113,7 @@ BattleShipGame.prototype.TwoPlayers = function()
             document.write('Now, 1st Player Turn');
             document.write("<br>");
 
-            var input = window.prompt('Shoot Player 1'); //0,1
+            var input = window.prompt('Player 1, input a position i.e. (x,y)'); //0,1
             turns1--;
             document.getElementById('main').innerHTML = '';
             document.write('Maximum number of turns for Player 2: ', turns2);
@@ -131,7 +131,7 @@ BattleShipGame.prototype.TwoPlayers = function()
             document.write('Now, 2nd Player Turn');
             document.write("<br>");
 
-            var input = window.prompt('Shoot Player 2'); //0,1
+            var input = window.prompt('Player 2, input a position i.e. (x,y)'); //0,1
             turns2--;
             document.getElementById('main').innerHTML = '';
             document.write('Maximum number of turns for Player 1: ', turns1);
