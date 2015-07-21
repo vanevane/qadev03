@@ -8,3 +8,5 @@ var Player = function(name, value)
     this.value = value;
     //this.game = table;
 };
+
+module.exports = Player;

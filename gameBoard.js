@@ -19,7 +19,7 @@ GameBoard.prototype.createGrid = function (size)
 
     for(var i = 0; i < size; i++)
     {
-        this.grid[i] = new Array();
+        this.grid[i] = [];
         //
         for(var j = 0; j < size; j++)
         {
@@ -53,7 +53,7 @@ GameBoard.prototype.setPosition = function(input, player)
     //var axis = in
     var x = axis.getRow();
     var y = axis.getColumn();
-    console.log('pos x' +x);
+    console.log('pos x' + x);
     console.log('pos y' + y);
 
     if(player == 1)
@@ -66,7 +66,6 @@ GameBoard.prototype.setPosition = function(input, player)
     {
         this.grid[x][y] = 'O';
     }
-
 };
 
 GameBoard.prototype.mapTurn = function(input)
@@ -80,14 +79,15 @@ GameBoard.prototype.mapTurn = function(input)
         case '4': return new Axis(1, 0); break;
         case '5': return new Axis(1, 1); break;
         case '6': return new Axis(1, 2); break;
-        case '7': return new Axis(2, 0); break;
+        case '7': console.log('pos 7'); return new Axis(2, 0); break;
         case '8': return new Axis(2, 1); break;
         case '9': return new Axis(2, 2); break;
     }
 };
-
-GameBoard.prototype.createTurnObject = function()
-{
-
-
-};
+// The method was carried away to ticTacToe.js
+/*
+ GameBoard.prototype.createTurnObject = function()
+ {
+ };
+ */
+module.exports = GameBoard;
