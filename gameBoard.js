@@ -1,7 +1,7 @@
 /**
  * Created by HS on 18/07/2015.
  */
-
+var Axis = require('./axis');
 
 var GameBoard = function()
 {
@@ -32,14 +32,14 @@ GameBoard.prototype.print = function()
 {
     for(var i = 0; i < this.size; i++) {
         for(var z = 0; z < this.size; z++) {
-            document.write(this.grid[z][i]);
+            //document.write(this.grid[z][i]);
             //document.write("<br>");
             //document.write("_");
         }
         //document.write("_");
-        document.write("<br>");
+        //document.write("<br>");
     }
-    document.write("<br>");
+    //document.write("<br>");
 };
 
 GameBoard.prototype.setPosition = function(input, player)
@@ -86,8 +86,8 @@ GameBoard.prototype.mapTurn = function(input)
 };
 // The method was carried away to ticTacToe.js
 /*
- GameBoard.prototype.createTurnObject = function()
- {
- };
- */
+GameBoard.prototype.createTurnObject = function()
+{
+};
+*/
 module.exports = GameBoard;

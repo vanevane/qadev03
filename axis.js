@@ -17,3 +17,5 @@ var Axis = function(col, row)
     };
 
 };
+
+module.exports = Axis;

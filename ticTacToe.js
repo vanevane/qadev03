@@ -18,9 +18,9 @@ var TicTacToeGame = function()
 };
 
 /*
- Constructor used for the jasmine testing.
+Constructor used for the jasmine testing.
  */
-var TicTacToeGame = function(){};
+//var TicTacToeGame = function(){};
 
 TicTacToeGame.prototype.init = function()
 {
@@ -31,7 +31,7 @@ TicTacToeGame.prototype.init = function()
 
 TicTacToeGame.prototype.start = function()
 {
-    this.TwoPlayers();
+    //this.TwoPlayers();
 };
 
 TicTacToeGame.prototype.TwoPlayers = function()
@@ -59,7 +59,7 @@ TicTacToeGame.prototype.TwoPlayers = function()
             //document.write('Now, 1st Player Turn');
             //document.write("<br>");
 
-            var input = window.prompt('Player 1, input a position'); //0,1
+            //var input = window.prompt('Player 1, input a position'); //0,1
 
             //document.getElementById('main').innerHTML = '';
             //document.write('Maximum number of turns for Player 2: ', turns2);
@@ -71,8 +71,8 @@ TicTacToeGame.prototype.TwoPlayers = function()
             this.gameboard.print();
 
             /*
-             Storing a turnObject inside the "this.turns" array.
-             Storing an input inside the "this.player1movements" array.
+            Storing a turnObject inside the "this.turns" array.
+            Storing an input inside the "this.player1movements" array.
              */
             this.turns.push(this.createTurnObject(parseInt(input), 1));
             this.player1movements.push(parseInt(input));
@@ -84,19 +84,19 @@ TicTacToeGame.prototype.TwoPlayers = function()
         }
 
         /*
-         The "if" that controls who's the winner of the game after at least 3 turns
-         from the player 1 and 2 turns from the player 2.
+        The "if" that controls who's the winner of the game after at least 3 turns
+        from the player 1 and 2 turns from the player 2.
          */
         if((turns1 + turns2) <= 4)
         {
             if(this.checkResult(this.player1movements))
             {
-                alert('Player 1 wins!!!');
+                //alert('Player 1 wins!!!');
                 return;
             }
             if(this.checkResult(this.player2movements))
             {
-                alert('Player 2 wins!!!');
+                //alert('Player 2 wins!!!');
                 return;
             }
         }
@@ -106,7 +106,7 @@ TicTacToeGame.prototype.TwoPlayers = function()
             //document.write('Now, 2nd Player Turn');
             //document.write("<br>");
 
-            var input = window.prompt('Player 2, input a position'); //0,1
+            //var input = window.prompt('Player 2, input a position'); //0,1
 
             //document.getElementById('main').innerHTML = '';
             //document.write('Maximum number of turns for Player 1: ', turns1);
@@ -132,7 +132,7 @@ TicTacToeGame.prototype.TwoPlayers = function()
     }
 };
 /*
- Method that creates a "json" that represents a turn (i.e. value, player)
+Method that creates a "json" that represents a turn (i.e. value, player)
  */
 TicTacToeGame.prototype.createTurnObject = function(value, player)
 {
@@ -151,28 +151,28 @@ TicTacToeGame.prototype.getTurns = function() {
 };
 
 /* // Deprecated method.
- TicTacToeGame.prototype.whoWins = function(){
- var res = 'Player 1 wins!!!';
+TicTacToeGame.prototype.whoWins = function(){
+    var res = 'Player 1 wins!!!';
 
- for(var i = 0; i < this.turns.length; i++)
- {
- if(this.turns[i].player == 1)
- {
- this.player1movements.push(this.turns.value);
- }
- else
- {
- this.player2movements.push(this.turns.value);
- }
- }
+    for(var i = 0; i < this.turns.length; i++)
+    {
+        if(this.turns[i].player == 1)
+        {
+            this.player1movements.push(this.turns.value);
+        }
+        else
+        {
+            this.player2movements.push(this.turns.value);
+        }
+    }
 
- if(!this.checkResult())
- {
- res = 'Player 2 wins!!!';
- }
- return res;
- };
- */
+    if(!this.checkResult())
+    {
+        res = 'Player 2 wins!!!';
+    }
+    return res;
+};
+*/
 
 
 TicTacToeGame.prototype.checkResult = function(array){
@@ -187,15 +187,15 @@ TicTacToeGame.prototype.checkResult = function(array){
     return false;
 };
 /* // Find a RegExp <----------------------------------
- TicTacToeGame.prototype.leftColumn = function(array)
- {
- var forRegExpSearch = String.prototype.concat(array).replace(/,/g, '');
- return /[147]/.test(forRegExpSearch);
- };
- */
+TicTacToeGame.prototype.leftColumn = function(array)
+{
+    var forRegExpSearch = String.prototype.concat(array).replace(/,/g, '');
+    return /[147]/.test(forRegExpSearch);
+};
+*/
 
 /*
- The next methods verify the row/column/diagonal winners.
+The next methods verify the row/column/diagonal winners.
  */
 TicTacToeGame.prototype.upperRow = function(array)
 {
