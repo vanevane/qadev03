@@ -26,7 +26,8 @@
     <script src="player.js" type="application/javascript"></script>
     <script src="gameBoard.js" type="application/javascript"></script>
     <script src="ticTacToe.js" type="application/javascript"></script>
-    <script src="main.js" type="application/javascript"></script>
+    <!--<script src="main.js" type="application/javascript"></script>-->
+
     <!--<h2>Batafasfasfa</h2>-->
     <!--<script src="player.js" type="application/javascript"></script>-->
     <!--<script src="gameBoard.js" type="application/javascript"></script>-->
@@ -36,6 +37,125 @@
     <!--<script src="player.js" type="application/javascript"></script>-->
     <!--<script src="game.js" type="application/javascript"></script>-->
     <!--<script src="main.js" type="application/javascript"></script>-->
+    <script type="text/javascript">
+        var ttt = new TicTacToeGame();
+
+
+
+
+        TicTacToeGame.prototype.TwoPlayers = function(input)
+        {
+            var turns1 = 5;
+            var turns2 = 4;
+
+            console.log('Maximum number of turns for Player 1: ', turns1);
+
+            console.log('Maximum number of turns for Player 2: ', turns2);
+
+            this.gameboard.print();
+
+            while((turns1 + turns2) > 0) {
+
+                while ((turns1) > 0) {
+
+                    console.log('FIRST PLAYER TURN ', turns1);
+
+                    //var input = window.prompt('Player 1, input a position'); //0,1
+
+                    //document.getElementById('main').innerHTML = '';
+                    //document.write('Maximum number of turns for Player 2: ', turns2);
+                    //document.write("<br>");
+
+                    this.gameboard.setPosition(input, 1);
+
+                    this.gameboard.print();
+
+                    /*
+                     Storing a turnObject inside the "this.turns" array.
+                     Storing an input inside the "this.player1movements" array.
+                     */
+                    this.turns.push(this.createTurnObject(parseInt(input), 1));
+                    this.player1movements.push(parseInt(input));
+                    console.log(this.turns);
+                    console.log(this.player1movements);
+
+                    turns1--;
+                    break;
+                }
+
+                /*
+                 The "if" that controls who's the winner of the game after at least 3 turns
+                 from the player 1 and 2 turns from the player 2.
+                 */
+                if((turns1 + turns2) <= 4)
+                {
+                    if(this.checkResult(this.player1movements))
+                    {
+                        alert('Player 1 wins!!!');
+                        return;
+                    }
+                    if(this.checkResult(this.player2movements))
+                    {
+                        alert('Player 2 wins!!!');
+                        return;
+                    }
+                }
+
+                while (turns2 > 0) {
+                    console.log('SECOND PLAYER TURN ', turns2);
+
+                    //document.getElementById('main').innerHTML = '';
+                    //document.write('Maximum number of turns for Player 1: ', turns1);
+                    //document.write("<br>");
+
+                    this.gameboard.setPosition(input, 2);
+
+                    this.gameboard.print();
+
+                    /*
+                     Storing a turnObject inside the "this.turns" array.
+                     Storing an input inside the "this.player2movements" array.
+                     */
+                    this.turns.push(this.createTurnObject(parseInt(input), 2));
+                    this.player2movements.push(parseInt(input));
+                    console.log(this.turns);
+                    console.log(this.player2movements);
+
+                    turns2--;
+                    break;
+                }
+            }
+        };
+
+
+
+
+
+        var myGameBoard = new GameBoard(8);
+        document.getElementById("test0").innerHTML = myGameBoard.drawFancyTable();
+        document.getElementById("test1").innerHTML = myGameBoard.drawDisplayedTable();
+
+        function myFunction(){
+            var x = parseInt(document.getElementById("textColumn").value);
+            var y = parseInt(document.getElementById("textRow").value);
+
+            if(myGameBoard.table[y][x] == 1)
+            {
+                myGameBoard.displayedTable[y][x] = '*';
+            }
+            else
+            {
+                myGameBoard.displayedTable[y][x] = 'X';
+            }
+
+            document.getElementById("test1").innerHTML = myGameBoard.drawDisplayedTable();
+        };
+        function startGame(){
+            location.reload();
+        };
+
+
+    </script>
 
 </div>
 

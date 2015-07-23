@@ -28,18 +28,26 @@ GameBoard.prototype.createGrid = function (size)
     }
 }
 
+/*
+Returning the table as a string.
+ */
 GameBoard.prototype.print = function()
 {
+    var res = '';
+
     for(var i = 0; i < this.size; i++) {
         for(var z = 0; z < this.size; z++) {
             //document.write(this.grid[z][i]);
             //document.write("<br>");
             //document.write("_");
+            res += this.grid[z][i];
         }
         //document.write("_");
         //document.write("<br>");
+        res += '<br/>';
     }
     //document.write("<br>");
+    return res;
 };
 
 GameBoard.prototype.setPosition = function(input, player)
@@ -60,7 +68,7 @@ GameBoard.prototype.setPosition = function(input, player)
     {
         console.log('player 1');
         this.grid[x][y] = 'X';
-        //print();
+        //print(); <------------------------------------- Don't forget that.
     }
     if(player == 2)
     {

@@ -14,7 +14,7 @@ var TicTacToeGame = function()
     this.player2movements = []; // Stores the inputs for P2
 
     this.init();
-    this.start();
+    //this.start(); <------------------------------------- Don't forget that.
 };
 
 /*
@@ -30,94 +30,100 @@ TicTacToeGame.prototype.init = function()
 };
 
 
-TicTacToeGame.prototype.start = function()
-{
-    this.TwoPlayers();
-};
+//TicTacToeGame.prototype.start = function(input)
+//{
+//    this.TwoPlayers(input);
+//};
 
-TicTacToeGame.prototype.TwoPlayers = function()
-{
-    var turns1 = 5;
-    var turns2 = 4;
+/*
+MOVE THE METHOD COMPLETELY TO index.html
+ */
 
-    console.log('Maximum number of turns for Player 1: ', turns1);
+//TicTacToeGame.prototype.TwoPlayers = function(input)
+//{
+//    var turns1 = 5;
+//    var turns2 = 4;
+//
+//    console.log('Maximum number of turns for Player 1: ', turns1);
+//
+//    console.log('Maximum number of turns for Player 2: ', turns2);
+//
+//    this.gameboard.print();
+//
+//    while((turns1 + turns2) > 0) {
+//
+//        while ((turns1) > 0) {
+//
+//            console.log('FIRST PLAYER TURN ', turns1);
+//
+//            //var input = window.prompt('Player 1, input a position'); //0,1
+//
+//            //document.getElementById('main').innerHTML = '';
+//            //document.write('Maximum number of turns for Player 2: ', turns2);
+//            //document.write("<br>");
+//
+//            this.gameboard.setPosition(input, 1);
+//
+//            this.gameboard.print();
+//
+//            /*
+//            Storing a turnObject inside the "this.turns" array.
+//            Storing an input inside the "this.player1movements" array.
+//             */
+//            this.turns.push(this.createTurnObject(parseInt(input), 1));
+//            this.player1movements.push(parseInt(input));
+//            console.log(this.turns);
+//            console.log(this.player1movements);
+//
+//            turns1--;
+//            break;
+//        }
+//
+//        /*
+//        The "if" that controls who's the winner of the game after at least 3 turns
+//        from the player 1 and 2 turns from the player 2.
+//         */
+//        if((turns1 + turns2) <= 4)
+//        {
+//            if(this.checkResult(this.player1movements))
+//            {
+//                alert('Player 1 wins!!!');
+//                return;
+//            }
+//            if(this.checkResult(this.player2movements))
+//            {
+//                alert('Player 2 wins!!!');
+//                return;
+//            }
+//        }
+//
+//        while (turns2 > 0) {
+//            console.log('SECOND PLAYER TURN ', turns2);
+//
+//            //document.getElementById('main').innerHTML = '';
+//            //document.write('Maximum number of turns for Player 1: ', turns1);
+//            //document.write("<br>");
+//
+//            this.gameboard.setPosition(input, 2);
+//
+//            this.gameboard.print();
+//
+//            /*
+//             Storing a turnObject inside the "this.turns" array.
+//             Storing an input inside the "this.player2movements" array.
+//             */
+//            this.turns.push(this.createTurnObject(parseInt(input), 2));
+//            this.player2movements.push(parseInt(input));
+//            console.log(this.turns);
+//            console.log(this.player2movements);
+//
+//            turns2--;
+//            break;
+//        }
+//    }
+//};
 
-    console.log('Maximum number of turns for Player 2: ', turns2);
 
-    this.gameboard.print();
-
-    while((turns1 + turns2) > 0) {
-
-        while ((turns1) > 0) {
-
-            console.log('FIRST PLAYER TURN ', turns1);
-
-            //var input = window.prompt('Player 1, input a position'); //0,1
-
-            //document.getElementById('main').innerHTML = '';
-            //document.write('Maximum number of turns for Player 2: ', turns2);
-            //document.write("<br>");
-
-            this.gameboard.setPosition(input, 1);
-
-            this.gameboard.print();
-
-            /*
-            Storing a turnObject inside the "this.turns" array.
-            Storing an input inside the "this.player1movements" array.
-             */
-            this.turns.push(this.createTurnObject(parseInt(input), 1));
-            this.player1movements.push(parseInt(input));
-            console.log(this.turns);
-            console.log(this.player1movements);
-
-            turns1--;
-            break;
-        }
-
-        /*
-        The "if" that controls who's the winner of the game after at least 3 turns
-        from the player 1 and 2 turns from the player 2.
-         */
-        if((turns1 + turns2) <= 4)
-        {
-            if(this.checkResult(this.player1movements))
-            {
-                alert('Player 1 wins!!!');
-                return;
-            }
-            if(this.checkResult(this.player2movements))
-            {
-                alert('Player 2 wins!!!');
-                return;
-            }
-        }
-
-        while (turns2 > 0) {
-            console.log('SECOND PLAYER TURN ', turns2);
-
-            //document.getElementById('main').innerHTML = '';
-            //document.write('Maximum number of turns for Player 1: ', turns1);
-            //document.write("<br>");
-
-            this.gameboard.setPosition(input, 2);
-
-            this.gameboard.print();
-
-            /*
-             Storing a turnObject inside the "this.turns" array.
-             Storing an input inside the "this.player2movements" array.
-             */
-            this.turns.push(this.createTurnObject(parseInt(input), 2));
-            this.player2movements.push(parseInt(input));
-            console.log(this.turns);
-            console.log(this.player2movements);
-
-            turns2--;
-            break;
-        }
-    }
-};
 /*
 Method that creates a "json" that represents a turn (i.e. value, player)
  */
