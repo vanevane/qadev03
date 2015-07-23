@@ -84,10 +84,5 @@ GameBoard.prototype.mapTurn = function(input)
         case '9': return new Axis(2, 2); break;
     }
 };
-// The method was carried away to ticTacToe.js
-/*
-GameBoard.prototype.createTurnObject = function()
-{
-};
-*/
+
 module.exports = GameBoard;
